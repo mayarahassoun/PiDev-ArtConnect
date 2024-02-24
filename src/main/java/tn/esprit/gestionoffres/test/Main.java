@@ -1,49 +1,25 @@
 package tn.esprit.gestionoffres.test;
 
 import tn.esprit.gestionoffres.models.Entreprise;
+import tn.esprit.gestionoffres.models.OffreDemploi;
 import tn.esprit.gestionoffres.services.EntrepriseService;
+import tn.esprit.gestionoffres.services.OffreDemploiService;
 
 import java.sql.SQLException;
 import java.util.List;
 
-/*public class Main {
-    public static void main(String[] args) {
-        EntrepriseService es = new EntrepriseService();
-       try {
-            es.ajouter(new Entreprise("muse", "tunis", "4444"));
-
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
 
 
-        try {
-            es.modifier(new Entreprise(34,"m", "ITALY", "4444"));
-        }catch (SQLException e){
-            System.err.println(e.getMessage());
-         }
-        try {
-            es.supprimer(34);
-        }catch (SQLException e){
-            System.err.println(e.getMessage());
-        }
-
-        try {
-            System.out.println(es.recuperer());;
-        }catch (SQLException e){
-            System.err.println(e.getMessage());
-    }
-
-
-      }*/
    public class Main {
 
     public static void main(String[] args) throws SQLException {
 
         // Création du service Entreprise
         EntrepriseService service = new EntrepriseService();
+        // Création du service Entreprise
+        OffreDemploiService serviceOffre = new OffreDemploiService();
 
-           // Ajout d'une nouvelle entreprise
+          /* // Ajout d'une nouvelle entreprise
            Entreprise entreprise1 = new Entreprise("Nom Entreprise 1", "Adresse Entreprise 1", "Contact Entreprise 1");
            service.ajouter(entreprise1);
 
@@ -67,7 +43,7 @@ import java.util.List;
             System.out.println("Contact : " + entreprise.getContact());
         }
 
-       /* try {
+       try {
             service.modifier(new Entreprise(40, "m", "ITALY", "4444"));
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -77,7 +53,40 @@ import java.util.List;
            }catch (SQLException e){
                System.err.println(e.getMessage());
            }
-           }*/
+           }
+        // Ajout d'une nouvelle offre d'emploi
+        OffreDemploi offre1 = new OffreDemploi("Titre Offre 1", "Description Offre 1", 2000, "Ouvert", 45);
+        serviceOffre.ajouter(offre1);
+        // Ajout d'une deuxième offre d'emploi
+        OffreDemploi offre2 = new OffreDemploi("Titre Offre 2", "Description Offre 2", 2500, "Fermé", 46);
+        serviceOffre.ajouter(offre2);*/
+      //mofidier offreDemploi
+        try {
+            serviceOffre.modifier(new OffreDemploi(4, "Nouveau Titre", "Nouvelle Description", 3000, "Ouvert", 45));
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        // Suppression d'une offre d'emploi
+        try {
+            serviceOffre.supprimer(3);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        // Récupération de toutes les offres d'emploi
+        List<OffreDemploi> offres = serviceOffre.recuperer();
+
+        // Affichage de la liste des offres d'emploi
+        System.out.println("\nListe des offres d'emploi : ");
+        for (OffreDemploi offre : offres) {
+            System.out.println("-------------------");
+            System.out.println("ID : " + offre.getId());
+            System.out.println("Titre : " + offre.getTitre());
+            System.out.println("Description : " + offre.getDescription());
+            System.out.println("Salaire : " + offre.getSalaire());
+            System.out.println("Statut : " + offre.getStatus());
+            System.out.println("ID Entreprise : " + offre.getIdEntreprise());
+        }
 
 
         }

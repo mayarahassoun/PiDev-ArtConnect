@@ -7,7 +7,9 @@ public class Entreprise {
     String contact;
 
 
+
     public Entreprise() {}
+
     public Entreprise(int id, String nom, String adresse, String contact) {
         this.id = id;
         this.nom = nom;
@@ -52,7 +54,6 @@ public class Entreprise {
     public void setContact(String contact) {
         this.contact = contact;
     }
-
 
     @Override
     public String toString() {
