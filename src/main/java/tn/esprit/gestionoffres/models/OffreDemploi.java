@@ -4,7 +4,7 @@ public class OffreDemploi {
     int id;
     String titre;
     String description;
-    float salaire;
+    Float salaire;
     String status;
     int idEntreprise;
 
