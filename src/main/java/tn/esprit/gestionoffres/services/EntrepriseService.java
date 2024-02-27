@@ -80,4 +80,34 @@ public class EntrepriseService implements IService<Entreprise>{
     }
 
 
+    public List<String> recupererNomsEntreprises() throws SQLException {
+        String req = "SELECT nom FROM Entreprise";
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(req);
+
+        List<String> nomsEntreprises = new ArrayList<>();
+        while (rs.next()) {
+            String nom = rs.getString("nom");
+            nomsEntreprises.add(nom);
+        }
+        return nomsEntreprises;
+    }
+
+    public Entreprise recupererParId(int idEntreprise) throws SQLException {
+        String req = "SELECT * FROM Entreprise WHERE id = ?";
+        PreparedStatement ps = connection.prepareStatement(req);
+        ps.setInt(1, idEntreprise);
+        ResultSet rs = ps.executeQuery();
+
+        Entreprise entreprise = null;
+        if (rs.next()) {
+            entreprise = new Entreprise();
+            entreprise.setId(rs.getInt("id"));
+            entreprise.setNom(rs.getString("nom"));
+            entreprise.setAdresse(rs.getString("adresse"));
+            entreprise.setContact(rs.getString("contact"));
+        }
+        return entreprise;
+    }
+
 }

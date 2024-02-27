@@ -1,5 +1,9 @@
 package tn.esprit.gestionoffres.models;
 
+import tn.esprit.gestionoffres.services.EntrepriseService;
+
+import java.sql.SQLException;
+
 public class OffreDemploi {
     int id;
     String titre;
@@ -86,4 +90,20 @@ public class OffreDemploi {
                 ", idEntreprise=" + idEntreprise +
                 '}';
     }
+
+    public String getNomEntreprise() throws SQLException {
+        // Utilisez le service EntrepriseService pour récupérer l'entreprise correspondant à idEntreprise
+        EntrepriseService entrepriseService = new EntrepriseService();
+        Entreprise entreprise = entrepriseService.recupererParId(idEntreprise);
+
+        // Vérifiez si l'entreprise a été trouvée
+        if (entreprise != null) {
+            // Si oui, retournez le nom de l'entreprise
+            return entreprise.getNom();
+        } else {
+            // Sinon, retournez une chaîne vide ou null, selon vos besoins
+            return ""; // ou return null;
+        }
+    }
+
 }
