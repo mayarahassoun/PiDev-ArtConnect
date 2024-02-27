@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ComboBox?>
+
+<AnchorPane prefHeight="492.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pi_salma.controllers.UserController">
+   <children>
+      <ImageView fitHeight="492.0" fitWidth="382.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@643960ac1999ef0f2b66b178_62dfb171bd353b3faaedffff_recalamation-client-blog-cover.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="382.0" mnemonicParsing="false" onAction="#openModifInterface3" prefHeight="64.0" prefWidth="257.0" style="-fx-background-color: Yellow;" text="Mes Reclamation">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="382.0" layoutY="71.0" mnemonicParsing="false" onAction="#openModifInterface2" prefHeight="64.0" prefWidth="257.0" style="-fx-background-color: Yellow;" text="Ajouter Nouveaux">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="382.0" layoutY="149.0" mnemonicParsing="false" onAction="#openModifInterface1" prefHeight="64.0" prefWidth="257.0" style="-fx-background-color: Yellow;" text="Exit">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+   </children>
+
+</AnchorPane>
