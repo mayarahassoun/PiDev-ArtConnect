@@ -42,8 +42,7 @@ public class HomeController implements Initializable {
     private TextField txtPassword;;
     @FXML
     private DatePicker txtDOB;
-    @FXML
-    private DatePicker txtCreation;
+
     @FXML
     private TextField txtRole;
     @FXML
@@ -85,13 +84,21 @@ public class HomeController implements Initializable {
 
     @FXML
     private void HandleEvents(MouseEvent event) {
-        if (txtPassword.getText().isEmpty() ||txtEmail.getText().isEmpty() || txtFirstname.getText().isEmpty() || txtLastname.getText().isEmpty() || txtDOB.getValue().equals(null)|| txtRole.getText().isEmpty()) {
+        if (!isValidName(txtFirstname.getText())) {
             lblStatus.setTextFill(Color.TOMATO);
-            lblStatus.setText("Enter all details");
+            lblStatus.setText("First name should contain only letters");
+        } else if (!isValidName(txtLastname.getText())) {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Last name should contain only letters");
+        } else if (txtPassword.getText().length() < 8) {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Password should be 8 characters or more");
+        } else if (!isValidEmail(txtEmail.getText())) {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Enter a valid email address");
         } else {
             saveData();
         }
-
     }
 
     private void clearFields() {
@@ -276,5 +283,12 @@ public class HomeController implements Initializable {
         }
     }
 
+    private boolean isValidName(String name) {
+        return name.matches("[a-zA-Z]+");
+    }
 
+    private boolean isValidEmail(String email) {
+
+        return email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
+    }
 }

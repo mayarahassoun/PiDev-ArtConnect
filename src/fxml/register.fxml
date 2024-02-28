@@ -34,7 +34,8 @@
                 <TextField fx:id="txtRole" layoutX="73.0" layoutY="425.0" prefHeight="32.0" prefWidth="269.0" promptText="Role" />
                 <ComboBox fx:id="txtGender" editable="true" layoutX="72.0" layoutY="371.0" prefHeight="32.0" prefWidth="269.0" promptText="gender">
                 </ComboBox>
-                <Button fx:id="btnregister" layoutX="160.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: red;" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="s'inscrire" />
+                <Button fx:id="btnregister" layoutX="83.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: red;" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="s'inscrire" />
+            <Button fx:id="btnback" layoutX="246.0" layoutY="504.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: green;" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="se connecter" />
             </children>
         </Pane>
     </children>
