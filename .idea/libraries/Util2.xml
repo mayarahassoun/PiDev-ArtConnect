@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Util2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/build/classes/Util/javax.mail.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/build/classes/Util/TrayTester.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/build/classes/Util/itextpdf-5.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

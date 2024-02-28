@@ -1,0 +1,58 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jackson-dataformat-xml-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/controlsfx-11.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/slf4j-simple-1.7.36.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/commons-codec-1.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/commons-io-2.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jackson-annotations-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jfoenix-8.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/TrayNotification-5393c3a54f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/commons-compress-1.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/gson-2.8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/poi-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/bcprov-jdk18on-173.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/commons-io-2.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/poi-excelant-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/slf4j-simple-2.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jjwt-api-0.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/woodstox-core-6.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jackson-datatype-jsr310-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/commons-math3-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/poi-ooxml-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/SparseBitSet-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/xmlbeans-5.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/twilio-9.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/curvesapi-1.07.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/core-3.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/log4j-api-2.18.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/slf4j-api-1.7.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jjwt-jackson-0.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/httpcore-4.4.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/itextpdf-5.5.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/mysql-connector-java-5.1.23-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/ant-launcher-1.10.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/slf4j-api-1.7.36.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/stax2-api-4.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jackson-databind-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/stripe-java-20.103.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/slf4j-api-2.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/itextpdf-5.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jjwt-impl-0.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/poi-ooxml-lite-5.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/TrayTester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/httpclient-4.5.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/ant-1.10.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/jackson-core-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/controlsfx-8.40.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/commons-collections4-4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/json-20220320.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/lib/javax.mail.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

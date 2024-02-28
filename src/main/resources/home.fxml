@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.controllers.Home">
+   <children>
+      <Label fx:id="accueil" layoutX="75.0" layoutY="40.0" prefHeight="73.0" prefWidth="159.0" text="Accueil" textFill="#2f7c72">
+         <font>
+            <Font name="Eras Bold ITC" size="26.0" />
+         </font>
+      </Label>
+      <Button layoutX="345.0" layoutY="343.0" mnemonicParsing="false" onAction="#gotopointvente" prefHeight="43.0" prefWidth="183.0" style="-fx-background-radius: 12; -fx-background-color: #2f7c72;" text="point de vente" textFill="WHITE">
+         <font>
+            <Font name="Eras Bold ITC" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="345.0" layoutY="250.0" mnemonicParsing="false" onAction="#gotopartenaire" prefHeight="43.0" prefWidth="183.0" style="-fx-background-radius: 12; -fx-background-color: #2f7c72;" text="partenaire" textFill="WHITE">
+         <font>
+            <Font name="Eras Bold ITC" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="360.0" layoutY="154.0" prefHeight="18.0" prefWidth="153.0" text="type de partenaire :" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
