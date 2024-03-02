@@ -27,7 +27,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
-//we gonna remove the borderless thingie.  
+//we gonna remove the borderless
         stage.initStyle(StageStyle.DECORATED);
         stage.setMaximized(false);
 
@@ -40,8 +40,6 @@ public class Main extends Application {
             }
         });
 
-        //sorry about that - Windows defender issue.
-        //move around here
         root.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

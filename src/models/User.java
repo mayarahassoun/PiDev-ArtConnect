@@ -25,7 +25,7 @@ public class User {
 
     private String firstname;
 
-    private String DatedeCreation;
+
 
     private String Password;
 
@@ -34,14 +34,13 @@ public class User {
     private String role;
 
 
-    public User(int id, String email, String dob, String gender, String lastname, String firstname, String datedeCreation, String password, String image, String role) {
+    public User(int id, String email, String dob, String gender, String lastname, String firstname, String password, String image, String role) {
         this.id = id;
         this.email = email;
         this.dob = dob;
         this.gender = gender;
         this.lastname = lastname;
         this.firstname = firstname;
-        this.DatedeCreation = CurrentTime.GetCurrentTime();;
         this.Password = password;
         this.image = image;
         this.role = role;
@@ -122,13 +121,6 @@ public class User {
         this.role = role;
     }
 
-    public String getDatedeCreation() {
-        return DatedeCreation;
-    }
-
-    public void setDatedeCreation(String datedeCreation) {
-        DatedeCreation = datedeCreation;
-    }
 
 
     @Override
@@ -140,7 +132,6 @@ public class User {
                 ", gender='" + gender + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", firstname='" + firstname + '\'' +
-                ", DatedeCreation='" + DatedeCreation + '\'' +
                 ", Password='" + Password + '\'' +
                 ", image='" + image + '\'' +
                 ", role='" + role + '\'' +

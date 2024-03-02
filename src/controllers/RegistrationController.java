@@ -2,9 +2,19 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import utils.ConnectionUtil;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,8 +40,9 @@ public class RegistrationController {
     @FXML
     private ComboBox<String> txtGender;
 
-
-
+    @FXML
+    private ImageView uploadedImageView;
+    String imagePath;
     PreparedStatement preparedStatement;
     Connection connection;
 
@@ -44,6 +55,23 @@ public class RegistrationController {
 
         txtGender.getSelectionModel().select("Male");
     }
+    @FXML
+    private void handleUploadImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose Profile Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            // Store image path in class-level variable
+            imagePath = selectedFile.toURI().toString();
+            Image image = new Image(imagePath);
+            uploadedImageView.setImage(image);
+        }
+    }
+
+
     @FXML
     private void handleRegisterButton(ActionEvent event) {
         String firstname = txtFirstname.getText();
@@ -73,7 +101,8 @@ public class RegistrationController {
                 preparedStatement.setString(4, txtLastname.getText());
                 preparedStatement.setString(5, txtFirstname.getText());
                 preparedStatement.setString(6, txtPassword.getText());
-                preparedStatement.setString(7, null);
+
+                preparedStatement.setString(7, imagePath);
                 preparedStatement.setString(8, txtRole.getText());
 
                 int rowsInserted = preparedStatement.executeUpdate();
@@ -98,6 +127,20 @@ public class RegistrationController {
         return email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
     }
 
+    @FXML
+    private void handleSignupButton(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+            Parent registerParent = loader.load();
+            Scene loginScene = ((Node) event.getSource()).getScene();
+            Stage stage = (Stage) loginScene.getWindow();
+            Scene registerScene = new Scene(registerParent);
+            stage.setScene(registerScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

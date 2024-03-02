@@ -43,7 +43,6 @@ public class LoginController implements Initializable {
     @FXML
     private Button btnSignin;
 
-    /// --
     Connection con = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
@@ -51,14 +50,12 @@ public class LoginController implements Initializable {
     @FXML
     public void handleButtonAction(MouseEvent event) {
         if (event.getSource() == btnSignin) {
-            // Login
             String loginStatus = logIn();
             if (loginStatus.equals("Success")) {
                 try {
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
 
-                    // Check role
                     String role = getRole(txtUsername.getText());
                     if (role.equals("user")) {
                         try {
@@ -165,8 +162,12 @@ public class LoginController implements Initializable {
                 String dob = resultSet.getString("dob");
                 String role = resultSet.getString("role");
                 String gender = resultSet.getString("gender");
+                String imagePath = resultSet.getString("image");
 
-                user = new User(id, userEmail, dob, gender, lastname, firstname, null, password, null, role);
+                if (imagePath != null) {
+
+                    user = new User(id, userEmail, dob, gender, lastname, firstname, password, imagePath, role);
+                }
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
