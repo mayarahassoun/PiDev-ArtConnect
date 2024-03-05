@@ -20,7 +20,7 @@
       <Button layoutX="114.0" layoutY="360.0" mnemonicParsing="false" onAction="#ajouterEntreprise" prefWidth="100.0" text="Ajouter" />
       <Button layoutX="114.0" layoutY="397.0" mnemonicParsing="false" onAction="#modifierEntreprise" prefWidth="100.0" text="Modifier" />
       <Button layoutX="114.0" layoutY="432.0" mnemonicParsing="false" onAction="#supprimerEntreprise" prefWidth="100.0" text="Supprimer" />
-      <Label layoutX="82.0" layoutY="50.0" prefWidth="200.0" text="Entreprises">
+      <Label layoutX="545.0" layoutY="30.0" prefWidth="200.0" text="Entreprises">
          <font>
             <Font size="28.0" />
          </font>
