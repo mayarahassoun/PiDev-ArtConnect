@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="521.0" prefWidth="695.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit_pidev.controllers.ReservationAccepter">
+    <children>
+        <BorderPane layoutX="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <left>
+                <VBox prefHeight="521.0" prefWidth="313.0" style="-fx-background-color: #191970;" styleClass="ecrire-bar" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="55.0" prefWidth="280.0">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/429624197_373838825604079_5665639768613927721_n.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="70.0" prefWidth="179.0" text="Art Connect" textFill="#0047fb">
+                           <font>
+                              <Font name="Freestyle Script" size="42.0" />
+                           </font>
+                        </Label>
+                     </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="33.0" prefWidth="258.0" styleClass="shadow" stylesheets="@Style.css">
+                            <VBox.margin>
+                                <Insets left="30.0" right="30.0" />
+                            </VBox.margin>
+                            <children>
+                                <TextField prefHeight="44.0" prefWidth="181.0" promptText="taper ici pour chercher" styleClass="text-field" stylesheets="@Style.css">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect></TextField>
+
+                                <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" style="-fx-background-color: #ff8000;" styleClass="conf-button" stylesheets="@Style.css" text="chercher" textFill="WHITE">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect></Button>
+                            </children>
+                        </HBox>
+                        <VBox prefHeight="303.0" prefWidth="190.0">
+                            <VBox.margin>
+                                <Insets left="40.0" right="40.0" />
+                            </VBox.margin>
+                            <children>
+                                <HBox prefHeight="100.0" prefWidth="200.0" />
+                                <Label text="user ID :" textFill="#ff8000">
+                                    <font>
+                                        <Font name="Calibri Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="userIdSel" styleClass="text-field13" stylesheets="@Style.css">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect></TextField>
+                                <Label prefHeight="17.0" prefWidth="87.0" text="ID evenement:" textFill="#ff8000">
+                                    <font>
+                                        <Font name="Calibri Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="ideventSel" prefHeight="44.0" prefWidth="147.0" styleClass="text-field" stylesheets="@Style.css">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect></TextField>
+                                <Label text="nombres des personnes:" textFill="#ff8000">
+                                    <font>
+                                        <Font name="Calibri Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="nbrpersoneSel">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect></TextField>
+                                <Label text="numero de telephone :" textFill="#ff8000">
+                                    <font>
+                                        <Font name="Calibri Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="commentaireSel" prefHeight="44.0" prefWidth="122.0">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect></TextField>
+                                <Label text="Email :" textFill="#ff8000">
+                                    <font>
+                                        <Font name="Calibri Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="num_telSel">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect>
+                                </TextField>
+                                <TextField fx:id="idreserverSel" opacity="0.0" />
+                                <Button mnemonicParsing="false" onAction="#refuserReservation" styleClass="refuser-button" stylesheets="@Style.css" text="Refuser">
+                                    <effect>
+                                        <InnerShadow />
+                                    </effect></Button>
+                        <Button mnemonicParsing="false" onAction="#afficherReservationAttante" prefHeight="34.0" prefWidth="209.0" style="-fx-background-color: #ff8000;" styleClass="reserve-button" stylesheets="@Style.css" text="Voir les  Reservation en attante">
+                           <effect>
+                              <InnerShadow>
+                                 <input>
+                                    <DropShadow />
+                                 </input>
+                              </InnerShadow>
+                           </effect>
+                        </Button>
+                                <TextField fx:id="eventpath" opacity="0.0" />
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </left>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #191970;">
+                     <children>
+                                <Label prefHeight="51.0" prefWidth="349.0" stylesheets="@Style.css" text="Reservations Accepter" textFill="#ff8000">
+                                    <font>
+                                        <Font name="Cambria Bold" size="30.0" />
+                                    </font>
+                           <effect>
+                              <Blend />
+                           </effect>
+                                </Label>
+                     </children></HBox>
+                        <ScrollPane prefHeight="633.0" prefWidth="393.0">
+                            <content>
+                                <AnchorPane prefHeight="527.0" prefWidth="499.0">
+                                    <children>
+                                        <GridPane fx:id="gridPane" hgap="10.0" styleClass="event-grid-pane" stylesheets="@Style.css" vgap="10">
+
+
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <effect>
+                                                <InnerShadow />
+                                            </effect>
+
+                                            <!-- Ligne vide -->
+
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
