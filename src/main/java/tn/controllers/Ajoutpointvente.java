@@ -24,8 +24,6 @@ public class Ajoutpointvente {
     @FXML
     private TextArea point_desc;
 
-    @FXML
-    private TextField point_image;
 
     @FXML
     private TextField point_localisation;
@@ -51,7 +49,7 @@ public class Ajoutpointvente {
 
     @FXML
     void ajouterPointvente(ActionEvent event) throws SQLException {
-        if (point_nom.getText().isEmpty() || point_image.getText().isEmpty() || point_localisation.getText().length() < 4
+        if (point_nom.getText().isEmpty() || point_localisation.getText().length() < 4
                ) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -66,22 +64,22 @@ public class Ajoutpointvente {
             pv.setLocalisation(point_localisation.getText());
             pv.setDescription(point_desc.getText());
             pv.setNumero(Integer.parseInt(point_num.getText()));
-            pv.setimage(point_image.getText());
+
 
             if (pvs.addPointVente(pv)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.initStyle(StageStyle.UTILITY);
                 alert.setTitle("Success");
                 alert.setHeaderText(null);
-                alert.setContentText("Evenement a été ajouté");
+                alert.setContentText("PointVente a été ajouté");
                 alert.showAndWait();
 
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.initStyle(StageStyle.UTILITY);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);
-                alert.setContentText("Evenement n'a pas été ajouté");
+                alert.setContentText("PointVente a été ajouté");
                 alert.showAndWait();
             }
 
@@ -89,20 +87,7 @@ public class Ajoutpointvente {
 
     }
 
-    @FXML
-    void upload(ActionEvent event) {
-        FileChooser fc = new FileChooser();
-        String imageFile = "";
-        File f = fc.showOpenDialog(null);
 
-        if (f != null) {
-            imageFile = f.getAbsolutePath();
-            String newimageFile = imageFile.replace("C:\\Images\\", "");
-
-            point_image.setText(newimageFile);
-        }
-
-    }
 
 
     }

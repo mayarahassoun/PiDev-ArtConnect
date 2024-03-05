@@ -21,14 +21,14 @@ public class PointVenteServices {
 
 
     public boolean addPointVente(PointVente pointVente) throws SQLException {
-        String sql = "INSERT INTO pointvente (Name, localisation, Description, Numero, image) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO pointvente (Name, localisation, Description, Numero) VALUES (?, ?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, pointVente.getName());
         statement.setString(2, pointVente.getLocalisation());
         statement.setString(3, pointVente.getDescription());
         statement.setInt(4, pointVente.getNumero());
-        statement.setString(5, pointVente.getimage());
+
 
         statement.executeUpdate();
         return false;
@@ -41,7 +41,6 @@ public class PointVenteServices {
                     + "',localisation='" + pointVente.getLocalisation()
                     + "',Description='" + pointVente.getDescription()
                     + "',Numero='" + pointVente.getNumero()
-                    + "',image='" + pointVente.getimage()
                     + "' WHERE `id` =" + pointVente.getId();
             Statement st;
 
@@ -94,7 +93,6 @@ public class PointVenteServices {
                 pv.setLocalisation(rs.getString("localisation"));
                 pv.setDescription(rs.getString("description"));
                 pv.setNumero(rs.getInt("Numero"));
-                pv.setimage(rs.getString("image"));
 
                 //ajouter a la liste
                 list.add(pv);

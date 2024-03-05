@@ -14,8 +14,9 @@ import java.awt.*;
 
 public class Home {
 
-    @FXML
-    private TableView<Partenaire> table;
+
+
+
 
     @FXML
     void gotopartenaire(ActionEvent event) {
@@ -42,6 +43,20 @@ public class Home {
         } catch (Exception ex) {
             ex.printStackTrace(); // Keep this for debugging, but consider using a proper error handling mechanism
         }
+    }
+
+    @FXML
+    void partenaire(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
+            Parent root  = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Get the stage from the event source
+            stage.setScene(new Scene(root)); // Set the new scene on the stage
+            stage.show(); // Show the stage
+        } catch (Exception ex) {
+            ex.printStackTrace(); // Keep this for debugging, but consider using a proper error handling mechanism
+        }
+
     }
 
 }

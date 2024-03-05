@@ -1,14 +1,28 @@
 package tn.controllers;
 
+
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+
+//import com.itextpdf.layout.property.TextAlignment;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
@@ -16,51 +30,27 @@ import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import tn.models.Partenaire;
 import tn.services.partenaireServices;
-import java.io.File;
+
 import java.io.IOException;
-import java.net.URL;
+import java.net.MalformedURLException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Callback;
-import java.awt.*;
-import javafx.scene.control.TextField;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import java.util.stream.Collectors;
+import tn.utils.PdfGenerator;
+
+import static com.itextpdf.io.source.PdfTokenizer.TokenType.Name;
+
 
 public class Afficherpartenaire {
 
@@ -93,9 +83,10 @@ public class Afficherpartenaire {
 
     @FXML
     private TextField tf_search;
-
+    public static int idgetter;
     partenaireServices ps = new partenaireServices();
     ObservableList<Partenaire> partlist = ps.displayPartenaire();
+
 
 
 
@@ -103,8 +94,6 @@ public class Afficherpartenaire {
     void initialize() {
         /*       initListDeroulante();*/
         showPartenaire(ps.displayPartenaire());
-
-
 
         tf_search.textProperty().addListener((observable, oldValue, newValue) -> {
             // Use a stream to search the list of events
@@ -289,6 +278,81 @@ public class Afficherpartenaire {
     void cancelTri(ActionEvent event) {
         showPartenaire(ps.displayPartenaire());
 
+    }
+
+
+    @FXML
+    private void pdf(ActionEvent event) {
+        PdfGenerator pg=new PdfGenerator();
+        String date=LocalDateTime.now().toLocalDate().toString();
+        String path="C:\\Users\\MSI\\IdeaProjects\\ProjetPiJava\\src\\main\\java\\tn\\pdf\\Partenaire"+date+".pdf";
+        Document doc=pg.createPdf(path);
+        doc.add(generatePartenairePdfTable());
+        doc.close();
+    }
+    public Table generatePartenairePdfTable(){
+        int row=1;
+        String imgPath="C:\\Users\\MSI\\IdeaProjects\\ProjetPiJava\\src\\main\\java\\tn\\img\\";
+        PdfFont bold=null;
+        try {
+            bold=PdfFontFactory.createFont(StandardFonts.TIMES_BOLD);
+        } catch (IOException ex) {
+            Logger.getLogger(Afficherpartenaire.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Table table=new Table(new float[6]).useAllAvailableWidth();
+        table.setMargin(5);
+
+        Cell cell=new Cell(1,6).add(new Paragraph("Liste des partenaires").setFontSize(14));
+       // cell.setTextAlignment(TextAlignment.CENTER);
+        cell.setPadding(5);
+        table.addCell(cell);
+       // table.setTextAlignment(TextAlignment.CENTER);
+
+
+        //table.addCell(new Cell(1,1).add(new Paragraph("Id article")).setFont(bold));
+        table.addCell(new Cell(1,1).add(new Paragraph("Name")).setFont(bold));
+        table.addCell(new Cell(1,1).add(new Paragraph("Type")).setFont(bold));
+        table.addCell(new Cell(1,1).add(new Paragraph("Description")).setFont(bold));/*
+        table.addCell(new Cell(1,1).add(new Paragraph("Gouvernorat")).setFont(bold));
+        table.addCell(new Cell(1,1).add(new Paragraph("Region")).setFont(bold));*/
+        table.addCell(new Cell(1,1).add(new Paragraph("Numero")).setFont(bold));
+        table.addCell(new Cell(1,1).add(new Paragraph("DateDebut")).setFont(bold));
+        table.addCell(new Cell(1,1).add(new Paragraph("DateFin")).setFont(bold));
+
+
+        for(Partenaire a:ps.displayPartenaire()){
+            //table.addCell(a.getId()+"");
+            table.addCell(a.getName()+"");
+            table.addCell(a.getType()+"");
+            table.addCell(a.getDescription()+"");
+            /*
+            table.addCell(a.getGouvernorat()+"");
+            table.addCell(a.getRegion()+"");*/
+            table.addCell(a.getNumero()+"");
+            table.addCell(a.getDateDebut()+"");
+            table.addCell(a.getDateFin()+"");
+
+
+
+            row++;
+        }
+        return table;
+
+
+    }
+
+
+
+    @FXML
+    void statistique(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/statpartenaire.fxml"));
+            Parent root = loader.load();
+            table.getScene().setRoot(root);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

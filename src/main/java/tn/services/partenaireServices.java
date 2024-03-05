@@ -135,4 +135,9 @@ public class partenaireServices {
         }
         return list;
     }
+
+
+
+
+
 }

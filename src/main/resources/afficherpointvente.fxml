@@ -8,48 +8,52 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.controllers.Afficherpointvente">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.controllers.Afficherpointvente">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="900.0">
+      <AnchorPane layoutX="-12.0" layoutY="5.0" prefHeight="500.0" prefWidth="900.0">
          <children>
-            <TableView fx:id="table" layoutX="29.0" layoutY="187.0" prefHeight="280.0" prefWidth="850.0" style="-fx-background-color: transparent;">
+            <TableView fx:id="table" layoutX="55.0" layoutY="193.0" prefHeight="280.0" prefWidth="803.0" style="-fx-background-color: transparent;">
                <columns>
-                  <TableColumn fx:id="nom_col" prefWidth="84.0" text="Nom" />
-                  <TableColumn fx:id="localisation_col" prefWidth="101.0" text="Localisation" />
-                  <TableColumn fx:id="numero_col" minWidth="0.0" prefWidth="71.0" text="Numero" />
-                  <TableColumn fx:id="Description_col" minWidth="0.0" prefWidth="136.79998779296875" text="Description" />
-                  <TableColumn fx:id="image_col" minWidth="0.0" prefWidth="187.20001220703125" text="Image" />
-                  <TableColumn fx:id="delete_col" minWidth="0.0" prefWidth="133.5999755859375" text="Supprimer" />
-                  <TableColumn fx:id="Modifier_col" minWidth="0.0" prefWidth="136.0" text="Modifier" />
+                  <TableColumn fx:id="nom_col" prefWidth="108.0" text="Nom" />
+                  <TableColumn fx:id="localisation_col" prefWidth="122.40000915527344" text="Localisation" />
+                  <TableColumn fx:id="numero_col" minWidth="0.0" prefWidth="117.5999755859375" text="Numero" />
+                  <TableColumn fx:id="Description_col" minWidth="0.0" prefWidth="232.800048828125" text="Description" />
+                  <TableColumn fx:id="delete_col" minWidth="0.0" prefWidth="112.00006103515625" text="Supprimer" />
+                  <TableColumn fx:id="Modifier_col" minWidth="0.0" prefWidth="112.800048828125" text="Modifier" />
                </columns>
             </TableView>
-            <Button layoutX="183.0" layoutY="42.0" mnemonicParsing="false" onAction="#goToAddPointvente" prefHeight="50.0" prefWidth="48.0" style="-fx-background-radius: 50; -fx-background-color: #2f7c72; -fx-background-insets: 1;" text="+" textFill="WHITE">
+            <Button layoutX="183.0" layoutY="42.0" mnemonicParsing="false" onAction="#goToAddPointvente" prefHeight="50.0" prefWidth="48.0" style="-fx-background-radius: 50; -fx-background-color: #191970; -fx-background-insets: 1;" text="+" textFill="WHITE">
                <font>
                   <Font name="Eras Bold ITC" size="25.0" />
                </font>
             </Button>
-            <Label layoutX="372.0" layoutY="51.0" text="Les points de vente" textFill="#2f7c72">
+            <Label layoutX="372.0" layoutY="51.0" text="Les points de vente" textFill="#191970">
                <font>
                   <Font name="Eras Bold ITC" size="28.0" />
                </font>
             </Label>
             <TextField fx:id="tf_search" layoutX="220.0" layoutY="144.0" promptText="nom" />
-            <Label layoutX="66.0" layoutY="146.0" text="Recherche par Nom" textFill="#2f7c72">
+            <Label layoutX="66.0" layoutY="146.0" text="Recherche par Nom" textFill="#191970">
                <font>
                   <Font name="Eras Bold ITC" size="15.0" />
                </font>
             </Label>
-            <Button layoutX="29.0" layoutY="44.0" mnemonicParsing="false" onAction="#gotoAccueil" prefHeight="46.0" prefWidth="98.0" style="-fx-background-color: #2f7c72; -fx-border-radius: 12;" text="Acceuil" textFill="WHITE">
+            <Button layoutX="29.0" layoutY="44.0" mnemonicParsing="false" onAction="#gotoAccueil" prefHeight="46.0" prefWidth="98.0" style="-fx-background-color: #191970; -fx-border-radius: 12;" text="Acceuil" textFill="WHITE">
                <font>
                   <Font name="Eras Bold ITC" size="19.0" />
                </font>
             </Button>
-            <Button layoutX="589.0" layoutY="146.0" mnemonicParsing="false" onAction="#cancelTri" style="-fx-background-color: #2f7c72; -fx-background-radius: 12;" text="Reset Tri" textFill="WHITE">
+            <Button layoutX="474.0" layoutY="145.0" mnemonicParsing="false" onAction="#triParName" prefHeight="26.0" prefWidth="157.0" style="-fx-background-color: #191970; -fx-background-radius: 12;" text="Trier par Nom" textFill="WHITE">
                <font>
                   <Font name="Eras Demi ITC" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="666.0" layoutY="145.0" mnemonicParsing="false" onAction="#triParName" prefHeight="25.0" prefWidth="219.0" style="-fx-background-color: #2f7c72; -fx-background-radius: 12;" text="Trier par Nom" textFill="WHITE">
+            <Button layoutX="474.0" layoutY="147.0" mnemonicParsing="false" onAction="#cancelTri" style="-fx-background-color: #191970; -fx-background-radius: 12;" text="&lt;-" textFill="WHITE">
+               <font>
+                  <Font name="Eras Demi ITC" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="382.0" layoutY="147.0" mnemonicParsing="false" onAction="#Imprimer" prefHeight="22.0" prefWidth="86.0" style="-fx-background-color: #191970; -fx-background-radius: 12;" text="Imprimer" textFill="WHITE">
                <font>
                   <Font name="Eras Demi ITC" size="12.0" />
                </font>

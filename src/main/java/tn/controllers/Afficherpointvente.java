@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.print.PrinterJob;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,10 +14,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
+
+
+import tn.controllers.Frontpointvente;
 import tn.models.Partenaire;
 import tn.models.PointVente;
 import tn.services.PointVenteServices;
 
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,9 +40,6 @@ public class Afficherpointvente {
     private TableColumn<PointVente, String> delete_col;
 
     @FXML
-    private TableColumn<PointVente, String> image_col;
-
-    @FXML
     private TableColumn<PointVente, String> localisation_col;
 
     @FXML
@@ -50,8 +54,12 @@ public class Afficherpointvente {
     @FXML
     private TextField tf_search;
 
+
+
     PointVenteServices pvs = new PointVenteServices();
     ObservableList<PointVente> pointlist = pvs.displayPointVente();
+
+
 
     @FXML
     void initialize() {
@@ -78,7 +86,8 @@ public class Afficherpointvente {
         localisation_col.setCellValueFactory(new PropertyValueFactory<PointVente, String>("localisation"));
         Description_col.setCellValueFactory(new PropertyValueFactory<PointVente, String>("description"));
         numero_col.setCellValueFactory(data -> new SimpleObjectProperty(data.getValue().getNumero()));
-        image_col.setCellValueFactory(new PropertyValueFactory<PointVente, String>("image"));
+
+
 
         Callback<TableColumn<PointVente, String>, TableCell<PointVente, String>> deletecellFactory = (TableColumn<PointVente, String> param) -> {
             final TableCell<PointVente, String> cell = new TableCell<PointVente, String>() {
@@ -242,5 +251,23 @@ public class Afficherpointvente {
     void triParName(ActionEvent event) {
 
     }
+
+
+    @FXML
+    void Imprimer(ActionEvent event) {
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+
+        if (printerJob != null && printerJob.showPrintDialog(table.getScene().getWindow())) {
+            boolean success = printerJob.printPage(table);
+            if (success) {
+                printerJob.endJob();
+                System.out.println("Printing completed successfully.");
+            } else {
+                System.out.println("Printing failed.");
+            }
+        }
+    }
+
+
 
 }

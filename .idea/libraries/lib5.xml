@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="lib5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/controlsfx-8.40.14.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/slf4j-api-1.7.21.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/fontawesomefx-8.2.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/slf4j-log4j12-1.7.21.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/io-7.1.5.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/itextpdf-5.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/mysql-connector-java-5.1.23-bin.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/javax.mail.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/kernel-7.1.3.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/httpmime-4.5.13.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/httpclient-4.5.12.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/layout-7.1.3.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/TrayTester.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/slf4j-api-1.7.2.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/httpcore-4.4.4.jar!/" />
+      <root url="jar://$USER_HOME$/OneDrive/Bureau/amin java/integrationJava/integrationJava/tounesna/dist/lib/log4j-1.2.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

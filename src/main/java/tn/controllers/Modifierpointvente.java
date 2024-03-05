@@ -2,6 +2,8 @@ package tn.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -18,8 +20,6 @@ public class Modifierpointvente {
     @FXML
     private TextArea point_desc;
 
-    @FXML
-    private TextField point_image;
 
     @FXML
     private TextField point_localisation;
@@ -35,7 +35,7 @@ public class Modifierpointvente {
     PointVenteServices pvs = new PointVenteServices();
 
     @FXML
-    void affichagePointvente(ActionEvent event) {
+    void modifierPointvente(ActionEvent event) {
         if (point_nom.getText().isEmpty() || point_localisation.getText().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -50,7 +50,7 @@ public class Modifierpointvente {
             pointVente.setLocalisation(point_localisation.getText());
             pointVente.setDescription(point_desc.getText());
             pointVente.setNumero(Integer.parseInt(point_num.getText()));
-            pointVente.setimage(point_image.getText());
+
 
             if (pvs.updatePointVente(pointVente)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -75,10 +75,19 @@ public class Modifierpointvente {
     public void setPointvente(PointVente pv) {
         pointVente = pv;
         point_nom.setText(pv.getName());
-        point_image.setText(pv.getimage());
         point_desc.setText(pv.getDescription());
         point_localisation.setText(pv.getLocalisation());
         point_num.setText(String.valueOf(pv.getNumero()));
 
+    }
+
+    public void affichagePointvente(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/afficherpointvente.fxml"));
+            Parent root = loader.load();
+            point_nom.getScene().setRoot(root);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }

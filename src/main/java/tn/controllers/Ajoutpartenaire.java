@@ -49,7 +49,7 @@ public class Ajoutpartenaire {
     partenaireServices ps = new partenaireServices();
     @FXML
     private void ajouterPartenaire(ActionEvent event) throws SQLException {
-        if (part_nom.getText().isEmpty() || part_type.getText().isEmpty()) {
+        if (part_nom.getText().isEmpty() || part_type.getText().isEmpty() || part_num.getText().length() < 8 || part_num.getText().length() > 8 || part_desc.getText().isEmpty() || part_debut.isArmed() || part_fin.isArmed()) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initStyle(StageStyle.UTILITY);

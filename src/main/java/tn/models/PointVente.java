@@ -6,26 +6,26 @@ public class PointVente {
     private String Localisation;
     private String Description;
     private int Numero;
-    private String image;
 
 
 
-    public PointVente(int id, String Name, String Localisation, String Description, int Numero, String image) {
+
+    public PointVente(int id, String Name, String Localisation, String Description, int Numero) {
         this.id = id;
         this.Name = Name;
         this.Localisation = Localisation;
         this.Description = Description;
         this.Numero = Numero;
-        this.image = image;
+
 
     }
 
-    public PointVente(String Name, String Localisation, String Description, int Numero, String image) {
+    public PointVente(String Name, String Localisation, String Description, int Numero) {
         this.Name = Name;
         this.Localisation = Localisation;
         this.Description = Description;
         this.Numero = Numero;
-        this.image = image;
+
 
     }
 
@@ -70,13 +70,7 @@ public class PointVente {
         this.Numero = Numero;
     }
 
-    public String getimage() {
-        return image;
-    }
 
-    public void setimage(String image) {
-        this.image = image;
-    }
 
 
 
@@ -90,8 +84,7 @@ public class PointVente {
                 ", Name=" + Name +
                 ", Localisation=" + Localisation +
                 ", Description=" + Description +
-                ", Numero=" + Numero +
-                ", image='" + image + '\'' +
+                ", Numero=" + Numero + '\'' +
                 '}';
     }
 }

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MedMain1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../MedFly_java/MedFly2.0-main/MedMain/dist/MedMain.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

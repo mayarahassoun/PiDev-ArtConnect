@@ -1,11 +1,14 @@
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\models\PointVente.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Ajoutpointvente.java
-C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Frontpartenaire.java
+C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\utils\PdfGenerator.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Home.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Afficherpartenaire.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\utils\MyDatabase.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\esprit\MainFX.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Modifierpointvente.java
+C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Statpartenaire.java
+C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\dashbord.java
+C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Frontpointvente.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\services\PointVenteServices.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\models\Partenaire.java
 C:\Users\MSI\IdeaProjects\ProjetPiJava\src\main\java\tn\controllers\Afficherpointvente.java
