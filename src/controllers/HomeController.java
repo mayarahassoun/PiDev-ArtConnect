@@ -57,6 +57,10 @@ public class HomeController implements Initializable {
     Label lblStatus;
 
     @FXML
+    private TextField txtPhone;
+    @FXML
+    private TextField txtAddress;
+    @FXML
     TableView tblData;
 
     PreparedStatement preparedStatement;
@@ -107,12 +111,16 @@ public class HomeController implements Initializable {
         txtEmail.clear();
         txtRole.clear();
         txtPassword.clear();
+        txtPhone.clear();
+
+        txtAddress.clear();
+
     }
 
     private String saveData() {
 
         try {
-            String sql = "INSERT INTO Users (email, dob, gender, lastname, firstname, password, image, role) VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Users (email, dob, gender, lastname, firstname, password, image, role,Phone,adress) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, txtEmail.getText());
@@ -123,6 +131,9 @@ public class HomeController implements Initializable {
             preparedStatement.setString(6, txtPassword.getText());
             preparedStatement.setString(7, null);
             preparedStatement.setString(8, txtRole.getText());
+            preparedStatement.setInt(9, Integer.parseInt(txtPhone.getText()));
+            preparedStatement.setString(10, txtAddress.getText());
+
 
             preparedStatement.executeUpdate();
             lblStatus.setTextFill(Color.GREEN);
@@ -142,7 +153,7 @@ public class HomeController implements Initializable {
     }
 
     private ObservableList<ObservableList> data;
-    String SQL = "SELECT * from users";
+    String SQL ="SELECT email, dob, gender, lastname, firstname, password, image, role, Phone, address FROM users";
 
     //nekhou ken lcolumns
     private void fetColumnList() {
@@ -202,10 +213,15 @@ public class HomeController implements Initializable {
     private void handleTableViewSelection() {
         ObservableList selectedRow = (ObservableList) tblData.getSelectionModel().getSelectedItem();
         if (selectedRow != null) {
-            txtFirstname.setText(selectedRow.get(5).toString());
-            txtLastname.setText(selectedRow.get(4).toString());
-            txtEmail.setText(selectedRow.get(1).toString());
-            txtPassword.setText(selectedRow.get(6).toString());
+            txtFirstname.setText(selectedRow.get(4).toString());
+            txtLastname.setText(selectedRow.get(3).toString());
+            txtEmail.setText(selectedRow.get(0).toString());
+            txtPassword.setText(selectedRow.get(5).toString());
+            txtRole.setText(selectedRow.get(7).toString());
+            txtPhone.setText(selectedRow.get(8).toString());
+            txtAddress.setText(selectedRow.get(9).toString());
+
+
 
         }
     }
@@ -250,23 +266,28 @@ public class HomeController implements Initializable {
             String newEmail = txtEmail.getText();
             String newPassword = txtPassword.getText();
             String newRole = txtRole.getText();
+            int newPhone = Integer.parseInt(txtPhone.getText());
+            String newAddress = txtAddress.getText();
 
-            updateData(userId, newFirstname, newLastname, newEmail, newPassword, newRole);
+            updateData(userId, newFirstname, newLastname, newEmail, newPassword, newRole, newPhone, newAddress);
         } else {
 
         }
     }
 
-    private void updateData(String userId, String newFirstname, String newLastname, String newEmail, String newPassword, String newRole) {
+
+    private void updateData(String userId, String newFirstname, String newLastname, String newEmail, String newPassword, String newRole, int newPhone, String newAddress) {
         try {
-            String sql = "UPDATE Users SET firstname = ?, lastname = ?, email = ?, password = ?, role = ? WHERE id = ?";
+            String sql = "UPDATE Users SET firstname = ?, lastname = ?, email = ?, password = ?, role = ?, Phone = ?, address = ? WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, newFirstname);
             preparedStatement.setString(2, newLastname);
             preparedStatement.setString(3, newEmail);
             preparedStatement.setString(4, newPassword);
             preparedStatement.setString(5, newRole);
-            preparedStatement.setString(6, userId);
+            preparedStatement.setInt(6, newPhone);
+            preparedStatement.setString(7, newAddress);
+            preparedStatement.setString(8, userId);
 
             int rowsUpdated = preparedStatement.executeUpdate();
             if (rowsUpdated > 0) {
@@ -282,6 +303,7 @@ public class HomeController implements Initializable {
             lblStatus.setText("Error: " + ex.getMessage());
         }
     }
+
 
     private boolean isValidName(String name) {
         return name.matches("[a-zA-Z]+");

@@ -68,13 +68,9 @@ public class ProfilController implements Initializable {
 
                     String imagePath = user.getImage();
                     try {
-                        // Create a URL object from the modified image path
+
                         URL url = new URL(imagePath);
-
-                        // Convert the URL to a string and create an Image object
                         Image image = new Image(url.toString());
-
-                        // Set the image to the ImageView
                         profileImage.setImage(image);
                     } catch (MalformedURLException e) {
                         System.err.println("Error loading image: " + e.getMessage());

@@ -54,6 +54,7 @@
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
+            <Button fx:id="btnverifier" layoutY="279.0" mnemonicParsing="false" onAction="#handleverifier" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/fullpackstyling.css" text="verifier le compte" />
             </children>
         </Pane>
         <ImageView fitHeight="52.0" fitWidth="25.0" layoutX="394.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

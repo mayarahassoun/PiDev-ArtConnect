@@ -33,8 +33,13 @@ public class User {
 
     private String role;
 
+    private int Phone ;
 
-    public User(int id, String email, String dob, String gender, String lastname, String firstname, String password, String image, String role) {
+    private String Address;
+    private Boolean isVerified ;
+
+
+    public User(int id, String email, String dob, String gender, String lastname, String firstname, String password, String image, String role,int Phone,String address,boolean isVerified ) {
         this.id = id;
         this.email = email;
         this.dob = dob;
@@ -44,6 +49,8 @@ public class User {
         this.Password = password;
         this.image = image;
         this.role = role;
+        this.Phone = Phone;
+        this.isVerified=isVerified;
     }
 
     public int getId() {return id;}
@@ -120,8 +127,27 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+    public int getPhone() {
+        return Phone;
+    }
 
+    public void setPhone(int phone) {
+        this.Phone = phone;
+    }
+    public String getAddress() {
+        return Address;
+    }
 
+    public void setAddress(String address) {
+        this.Address = address;
+    }
+    public Boolean getVerified() {
+        return isVerified;
+    }
+
+    public void setVerified(Boolean isVerified) {
+        this.isVerified = isVerified;
+    }
 
     @Override
     public String toString() {

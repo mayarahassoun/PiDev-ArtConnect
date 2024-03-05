@@ -42,6 +42,11 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button btnSignin;
+    @FXML
+    private Label btnForgot;
+    @FXML
+    private Button btnverifier;
+
 
     Connection con = null;
     PreparedStatement preparedStatement = null;
@@ -59,7 +64,7 @@ public class LoginController implements Initializable {
                     String role = getRole(txtUsername.getText());
                     if (role.equals("user")) {
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Profile.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu2.fxml"));
                             Scene scene = new Scene(loader.load());
                             stage.setScene(scene);
                             ProfilController controller = loader.getController();
@@ -69,7 +74,7 @@ public class LoginController implements Initializable {
                         }
 
                     } else if (role.equals("admin")) {
-                        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/OnBoard.fxml")));
+                        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/menu1.fxml")));
                         stage.setScene(scene);
                     }
                     stage.show();
@@ -90,6 +95,21 @@ public class LoginController implements Initializable {
             lblErrors.setTextFill(Color.GREEN);
             lblErrors.setText("Server is up : Good to go");
         }
+        btnForgot.setOnMouseClicked(event -> {
+            try {
+                // Load fpass.fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/fpass.fxml"));
+                Parent fpassParent = loader.load();
+                Scene fpassScene = new Scene(fpassParent);
+
+                // Get the stage and set the new scene
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(fpassScene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public LoginController() {
@@ -97,16 +117,17 @@ public class LoginController implements Initializable {
     }
 
     //lblerror bch necheki beha
+    //lblerror bch necheki beha
     private String logIn() {
         String status = "Success";
         String email = txtUsername.getText();
         String password = txtPassword.getText();
-        if(email.isEmpty() || password.isEmpty()) {
+        if (email.isEmpty() || password.isEmpty()) {
             setLblError(Color.TOMATO, "Empty credentials");
             status = "Error";
         } else {
             //query
-            String sql = "SELECT * FROM users Where email = ? and password = ?";
+            String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             try {
                 preparedStatement = con.prepareStatement(sql);
                 preparedStatement.setString(1, email);
@@ -116,7 +137,15 @@ public class LoginController implements Initializable {
                     setLblError(Color.TOMATO, "Enter Correct Email/Password");
                     status = "Error";
                 } else {
-                    setLblError(Color.GREEN, "Login Successful..Redirecting..");
+                    // Check if user is verified
+                    boolean isVerified = resultSet.getBoolean("isVerified");
+                    if (isVerified) {
+                        setLblError(Color.GREEN, "Login Successful..Redirecting..");
+                    } else {
+                        // Redirect to verification page if not verified
+                        redirectToVerificationPage();
+                        status = "NotVerified";
+                    }
                 }
             } catch (SQLException ex) {
                 System.err.println(ex.getMessage());
@@ -126,6 +155,23 @@ public class LoginController implements Initializable {
 
         return status;
     }
+
+    // Redirect to verification page
+    private void redirectToVerificationPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/verifierCompte.fxml"));
+            Parent verificationParent = loader.load();
+            Scene verificationScene = new Scene(verificationParent);
+
+            // Get the stage and set the new scene
+            Stage stage = (Stage) btnSignin.getScene().getWindow();
+            stage.setScene(verificationScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private String getRole(String email) {
         String role = "";
         String sql = "SELECT role FROM users WHERE email = ?";
@@ -163,10 +209,13 @@ public class LoginController implements Initializable {
                 String role = resultSet.getString("role");
                 String gender = resultSet.getString("gender");
                 String imagePath = resultSet.getString("image");
+                int Phone = resultSet.getInt("Phone");
+                String adress = resultSet.getString("adress");
+                boolean isVerified = resultSet.getBoolean("isVerified");
 
                 if (imagePath != null) {
 
-                    user = new User(id, userEmail, dob, gender, lastname, firstname, password, imagePath, role);
+                    user = new User(id, userEmail, dob, gender, lastname, firstname, password, imagePath, role,Phone,adress,isVerified);
                 }
             }
         } catch (SQLException ex) {
@@ -188,6 +237,17 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
-}
+    @FXML
+    private void handleverifier(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/verifierCompte.fxml"));
+            Parent registerParent = loader.load();
+            Scene loginScene = ((Node) event.getSource()).getScene();
+            Stage stage = (Stage) loginScene.getWindow();
+            Scene registerScene = new Scene(registerParent);
+            stage.setScene(registerScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }}

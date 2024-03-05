@@ -31,11 +31,12 @@
                 <TextField fx:id="txtEmail" layoutX="73.0" layoutY="223.0" prefHeight="32.0" prefWidth="269.0" promptText="email" />
                 <PasswordField fx:id="txtPassword" layoutX="72.0" layoutY="276.0" prefHeight="32.0" prefWidth="269.0" promptText="Password" />
                 <DatePicker fx:id="txtDOB" layoutX="72.0" layoutY="322.0" prefHeight="32.0" prefWidth="269.0" promptText="dob" />
-                <TextField fx:id="txtRole" layoutX="73.0" layoutY="425.0" prefHeight="32.0" prefWidth="269.0" promptText="Role" />
                 <ComboBox fx:id="txtGender" editable="true" layoutX="72.0" layoutY="371.0" prefHeight="32.0" prefWidth="269.0" promptText="gender">
                 </ComboBox>
-                <Button fx:id="btnregister" layoutX="83.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: red;" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="s'inscrire" />
+                <Button fx:id="btnregister" layoutX="83.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #ff9800; -fx-background-radius: 15;" styleClass="button2" text="s'inscrire" />
             <Button fx:id="btnSignup" layoutX="246.0" layoutY="504.0" mnemonicParsing="false" onAction="#handleSignupButton" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: green;" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="se connecter" />
+            <TextField fx:id="txtPhone" layoutX="72.0" layoutY="421.0" prefHeight="32.0" prefWidth="144.0" promptText="Phone" />
+            <TextField fx:id="txtAddress" layoutX="69.0" layoutY="461.0" prefHeight="32.0" prefWidth="278.0" promptText="Address" />
             </children>
         </Pane>
       <AnchorPane layoutX="383.0" prefHeight="560.0" prefWidth="332.0">

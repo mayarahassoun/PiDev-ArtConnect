@@ -33,8 +33,7 @@ public class RegistrationController {
     private TextField txtPassword;;
     @FXML
     private DatePicker txtDOB;
-    @FXML
-    private TextField txtRole;
+
 
 
     @FXML
@@ -42,6 +41,10 @@ public class RegistrationController {
 
     @FXML
     private ImageView uploadedImageView;
+    @FXML
+    private TextField txtPhone;
+    @FXML
+    private TextField txtAddress;
     String imagePath;
     PreparedStatement preparedStatement;
     Connection connection;
@@ -51,8 +54,8 @@ public class RegistrationController {
     }
     public void initialize(URL url, ResourceBundle rb) {
 
-        txtGender.getItems().addAll("Male", "Female", "Other");
 
+        txtGender.getItems().addAll("Male", "Female", "Other");
         txtGender.getSelectionModel().select("Male");
     }
     @FXML
@@ -80,6 +83,8 @@ public class RegistrationController {
         String password = txtPassword.getText();
         String dob = txtDOB.getValue() != null ? txtDOB.getValue().toString() : null;
         String gender = txtGender.getValue() != null ? txtGender.getValue().toString() : null;
+        String phone = txtPhone.getText();
+        String address = txtAddress.getText();
 
         if (!isValidName(firstname)) {
             showAlert(Alert.AlertType.ERROR, "Error", "First name should contain only letters.");
@@ -92,7 +97,7 @@ public class RegistrationController {
         } else if (dob == null || gender == null) {
             showAlert(Alert.AlertType.ERROR, "Error", "Please fill in all fields.");
         } else {
-            String sql = "INSERT INTO Users (email, dob, gender, lastname, firstname, password, image, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Users (email, dob, gender, lastname, firstname, password, image, role, Phone, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, txtEmail.getText());
@@ -101,9 +106,10 @@ public class RegistrationController {
                 preparedStatement.setString(4, txtLastname.getText());
                 preparedStatement.setString(5, txtFirstname.getText());
                 preparedStatement.setString(6, txtPassword.getText());
-
                 preparedStatement.setString(7, imagePath);
-                preparedStatement.setString(8, txtRole.getText());
+                preparedStatement.setString(8, "user");
+                preparedStatement.setInt(9, Integer.parseInt(txtPhone.getText()));
+                preparedStatement.setString(10, txtAddress.getText());
 
                 int rowsInserted = preparedStatement.executeUpdate();
                 if (rowsInserted > 0) {
