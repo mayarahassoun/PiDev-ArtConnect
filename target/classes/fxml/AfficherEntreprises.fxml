@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherEntreprises">
+    <children>
+        <TableView fx:id="tableView" layoutX="323.0" layoutY="97.0" onMouseClicked="#handleTableRowClicked" prefHeight="380.0" prefWidth="562.0">
+            <columns>
+                <TableColumn fx:id="nomCol" prefWidth="195.199951171875" text="Nom" />
+                <TableColumn fx:id="adresseCol" prefWidth="200.80007934570312" text="Adresse" />
+                <TableColumn fx:id="contactCol" prefWidth="208.800048828125" text="Contact" />
+            </columns>
+        </TableView>
+        <Button layoutX="114.0" layoutY="360.0" mnemonicParsing="false" onAction="#ajouterEntreprise" prefWidth="100.0" style="-fx-background-color: #FF9800;" text="Ajouter" />
+        <Button layoutX="114.0" layoutY="397.0" mnemonicParsing="false" onAction="#modifierEntreprise" prefWidth="100.0" style="-fx-background-color: #FF9800;" text="Modifier" />
+        <Button layoutX="114.0" layoutY="432.0" mnemonicParsing="false" onAction="#supprimerEntreprise" prefWidth="100.0" style="-fx-background-color: #FF9800;" text="Supprimer" />
+        <Label layoutX="84.0" layoutY="27.0" prefWidth="200.0" text="Entreprises">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Label>
+        <TextField fx:id="nomModTF" layoutX="74.0" layoutY="122.0" prefHeight="48.0" prefWidth="180.0" promptText="Nom" />
+        <TextField fx:id="adresseModTF" layoutX="74.0" layoutY="192.0" prefHeight="48.0" prefWidth="180.0" promptText="Adresse" />
+        <TextField fx:id="contactModTF" layoutX="74.0" layoutY="265.0" prefHeight="48.0" prefWidth="180.0" promptText="Contact" />
+        <TextField fx:id="rechercheTF" layoutX="424.0" layoutY="34.0" prefHeight="48.0" prefWidth="328.0" promptText="Rechercher ..." />
+        <Button layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#retourBT" prefHeight="26.0" prefWidth="56.0" style="-fx-background-color: #FF9800;" text="retour" />
+    </children>
+</AnchorPane>

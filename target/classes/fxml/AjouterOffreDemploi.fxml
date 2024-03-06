@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterOffreDemploi">
+    <children>
+        <Label layoutX="410.0" layoutY="37.0" text="Ajouter Offre d'emploi" textFill="MIDNIGHTBLUE">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <TextField fx:id="titreTF" layoutX="344.0" layoutY="129.0" prefHeight="36.0" prefWidth="200.0" promptText="Titre" />
+        <TextField fx:id="descriptionTF" layoutX="344.0" layoutY="177.0" prefHeight="120.0" prefWidth="200.0" promptText="Description..." />
+        <TextField fx:id="salaireTF" layoutX="344.0" layoutY="309.0" prefHeight="36.0" prefWidth="200.0" promptText="Salaire" />
+        <Button layoutX="611.0" layoutY="493.0" mnemonicParsing="false" onAction="#ajouterOffreDemploi" prefHeight="42.0" prefWidth="103.0" style="-fx-background-color: #FF9800;" text="Ajouter">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Button>
+        <Button layoutX="738.0" layoutY="493.0" mnemonicParsing="false" onAction="#afficherOffreDemploi" prefHeight="42.0" prefWidth="110.0" style="-fx-background-color: #FF9800;" text="Afficher">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Button>
+        <ComboBox fx:id="statusCB" layoutX="344.0" layoutY="360.0" prefWidth="200.0" promptText="Status" />
+        <ComboBox fx:id="entrepriseCB" layoutX="344.0" layoutY="434.0" prefWidth="200.0" promptText="Entreprise" />
+        <VBox prefHeight="618.0" prefWidth="282.0" style="-fx-background-color: #191970;">
+            <children>
+                <HBox prefHeight="70.0" prefWidth="218.0">
+                    <children>
+                  <ImageView fitHeight="70.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../zaykaa/src/main/resources/img/429624197_373838825604079_5665639768613927721_n.png" />
+                     </image>
+                  </ImageView>
+                        <Label prefHeight="70.0" prefWidth="151.0" text="Art Connect" textFill="#0047fb">
+                            <font>
+                                <Font name="Freestyle Script" size="42.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Pane prefHeight="65.0" prefWidth="225.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="5.0" prefHeight="56.0" prefWidth="257.0" style="-fx-background-color: #191970; -fx-background-radius: 15;" text="tableau de bord" textAlignment="JUSTIFY" textFill="WHITE">
+                            <font>
+                                <Font name="Yu Gothic UI Semibold" size="30.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #191970; -fx-background-radius: 16;" text="Profile" textFill="#ff8000">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label prefHeight="17.0" prefWidth="11.0" />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #191970; -fx-background-radius: 16;" text=" Evenements" textFill="#ff8000">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #191970; -fx-background-radius: 16;" text=" Oeuvres D'art" textFill="#ff8000">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" onAction="#menuOffreDemploi" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #191970; -fx-background-radius: 16;" text=" Offres D'emplois" textFill="#ff8000">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #191970; -fx-background-radius: 16;" text="Partenaire" textFill="#ff8000">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #191970; -fx-background-radius: 16;" text="Reclaamations" textFill="#ff8000">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        <Label layoutX="20.0" layoutY="20.0" prefHeight="17.0" prefWidth="11.0" />
+        <Label layoutX="20.0" layoutY="20.0" />
+        <Label layoutX="20.0" layoutY="20.0" />
+        <Label layoutX="20.0" layoutY="20.0" />
+        <Label layoutX="20.0" layoutY="20.0" />
+    </children>
+</AnchorPane>

@@ -8,6 +8,7 @@
       <root url="jar://$PROJECT_DIR$/../../../../../Java/activation.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../../../../Java/twilio-10.1.0.jar!/" />
       <root url="file://$PROJECT_DIR$/../../../../../Java/twilio" />
+      <root url="jar://$PROJECT_DIR$/../../../../../Java/itextpdf-5.5.9.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

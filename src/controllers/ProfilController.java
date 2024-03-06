@@ -65,7 +65,6 @@ public class ProfilController implements Initializable {
                     this.txtEmail.setText(user.getEmail());
                     this.txtPassword.setText(user.getPassword());
                     this.txtRole.setText(user.getRole());
-
                     String imagePath = user.getImage();
                     try {
 

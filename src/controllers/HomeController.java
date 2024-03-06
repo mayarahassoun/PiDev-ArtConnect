@@ -1,6 +1,7 @@
 
 package controllers;
 
+import java.io.IOException;
 import java.sql.*;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -10,8 +11,13 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -22,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import utils.ConnectionUtil;
 
@@ -51,6 +58,8 @@ public class HomeController implements Initializable {
     private Button btnDelete;
     @FXML
     private Button btnUpdate;
+    @FXML
+    private Button btn_retour;
     @FXML
     private ComboBox<String> txtGender;
     @FXML
@@ -87,6 +96,18 @@ public class HomeController implements Initializable {
     }
 
     @FXML
+    void btn_retour(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu1.fxml"));
+            Parent root  = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Get the stage from the event source
+            stage.setScene(new Scene(root)); // Set the new scene on the stage
+            stage.show(); // Show the stage
+        } catch (Exception ex) {
+            ex.printStackTrace(); // Keep this for debugging, but consider using a proper error handling mechanism
+        }
+    }
+    @FXML
     private void HandleEvents(MouseEvent event) {
         if (!isValidName(txtFirstname.getText())) {
             lblStatus.setTextFill(Color.TOMATO);
@@ -112,7 +133,6 @@ public class HomeController implements Initializable {
         txtRole.clear();
         txtPassword.clear();
         txtPhone.clear();
-
         txtAddress.clear();
 
     }
@@ -120,7 +140,7 @@ public class HomeController implements Initializable {
     private String saveData() {
 
         try {
-            String sql = "INSERT INTO Users (email, dob, gender, lastname, firstname, password, image, role,Phone,adress) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Users (email, dob, gender, lastname, firstname, password, image, role,Phone,address) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, txtEmail.getText());
@@ -230,7 +250,7 @@ public class HomeController implements Initializable {
     private void handleDeleteButton() {
         ObservableList selectedRow = (ObservableList) tblData.getSelectionModel().getSelectedItem();
         if (selectedRow != null) {
-            String userEmail = selectedRow.get(1).toString();
+            String userEmail = selectedRow.get(0).toString();
             deleteData(userEmail);
         } else {
 
@@ -256,22 +276,45 @@ public class HomeController implements Initializable {
             lblStatus.setText("Error: " + ex.getMessage());
         }
     }
+    private int getUserIdByEmail(String email) {
+        int userId = -1;
+        try {
+            String sql = "SELECT id FROM Users WHERE email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                userId = resultSet.getInt("id");
+            }
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+        return userId;
+    }
     @FXML
     private void handleUpdateButton() {
         ObservableList selectedRow = (ObservableList) tblData.getSelectionModel().getSelectedItem();
         if (selectedRow != null) {
-            String userId = selectedRow.get(0).toString();
-            String newFirstname = txtFirstname.getText();
-            String newLastname = txtLastname.getText();
-            String newEmail = txtEmail.getText();
-            String newPassword = txtPassword.getText();
-            String newRole = txtRole.getText();
-            int newPhone = Integer.parseInt(txtPhone.getText());
-            String newAddress = txtAddress.getText();
+            String userEmail = txtEmail.getText();
+            int userId = getUserIdByEmail(userEmail);
+            if (userId != -1) {
 
-            updateData(userId, newFirstname, newLastname, newEmail, newPassword, newRole, newPhone, newAddress);
+                String newFirstname = txtFirstname.getText();
+                String newLastname = txtLastname.getText();
+                String newPassword = txtPassword.getText();
+                String newRole = txtRole.getText();
+                int newPhone = Integer.parseInt(txtPhone.getText());
+                String newAddress = txtAddress.getText();
+                String userIdString = String.valueOf(userId);
+
+                updateData(userIdString, newFirstname, newLastname, userEmail, newPassword, newRole, newPhone, newAddress);
+            } else {
+                lblStatus.setTextFill(Color.TOMATO);
+                lblStatus.setText("User not found with provided email");
+            }
         } else {
-
+            // Handle if no row is selected
         }
     }
 

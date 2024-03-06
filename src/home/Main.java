@@ -26,8 +26,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ShowProduit.fxml"));   // produit Client
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AfficherOeuvre.fxml")); ///gestion oeuvre Admin
+        // FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddCategorie.fxml"));  //gestion categorie
+
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
-//we gonna remove the borderless
         stage.initStyle(StageStyle.DECORATED);
         stage.setMaximized(false);
 

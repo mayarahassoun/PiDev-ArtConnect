@@ -62,9 +62,10 @@ public class LoginController implements Initializable {
                     Stage stage = (Stage) node.getScene().getWindow();
 
                     String role = getRole(txtUsername.getText());
+
                     if (role.equals("user")) {
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu2.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Profile.fxml"));
                             Scene scene = new Scene(loader.load());
                             stage.setScene(scene);
                             ProfilController controller = loader.getController();
@@ -210,12 +211,12 @@ public class LoginController implements Initializable {
                 String gender = resultSet.getString("gender");
                 String imagePath = resultSet.getString("image");
                 int Phone = resultSet.getInt("Phone");
-                String adress = resultSet.getString("adress");
+                String address = resultSet.getString("address");
                 boolean isVerified = resultSet.getBoolean("isVerified");
 
                 if (imagePath != null) {
 
-                    user = new User(id, userEmail, dob, gender, lastname, firstname, password, imagePath, role,Phone,adress,isVerified);
+                    user = new User(id, userEmail, dob, gender, lastname, firstname, password, imagePath, role,Phone,address,isVerified);
                 }
             }
         } catch (SQLException ex) {

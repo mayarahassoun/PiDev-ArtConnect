@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="569.0" prefWidth="793.0" style="-fx-background-color: #FFE0B2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AffichageReclamationBack">
+   <children>
+      <TableView fx:id="tableView" layoutX="-4.0" layoutY="118.0" prefHeight="457.0" prefWidth="793.0">
+        <columns>
+          <TableColumn fx:id="userName" prefWidth="146.0" text="User" />
+          <TableColumn fx:id="type" prefWidth="125.0" text="Type" />
+            <TableColumn fx:id="message" prefWidth="197.0" text="Message" />
+            <TableColumn fx:id="date" prefWidth="197.0" text="Date" />
+            <TableColumn fx:id="statut" prefWidth="127.0" text="Statut" />
+        </columns>
+      </TableView>
+      <Text layoutX="297.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Reclamations" wrappingWidth="328.119140625">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <HBox prefHeight="58.0" prefWidth="781.0">
+         <children>
+            <TextField fx:id="filtre" onKeyPressed="#handleSearch" prefHeight="58.0" prefWidth="242.0" promptText="Rechercher..." style="-fx-background-color: black; -fx-background-radius: 15;">
+               <font>
+                  <Font name="Bodoni MT Black" size="19.0" />
+               </font>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#modifer" prefHeight="58.0" prefWidth="180.0" style="-fx-background-color: #191970; -fx-background-radius: 15;" text="Traiter" textFill="#ff8000">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Supprimer" prefHeight="58.0" prefWidth="152.0" style="-fx-background-color: #191970; -fx-background-radius: 15;" text="Supprimer" textFill="#ff8000">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Back" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #191970; -fx-background-radius: 15;" text="Retour" textFill="#ff8000">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

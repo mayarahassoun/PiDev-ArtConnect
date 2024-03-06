@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherOffreDemploi">
+    <children>
+        <ComboBox fx:id="statusCB" layoutX="29.0" layoutY="224.0" prefWidth="150.0" promptText="Status" />
+        <ComboBox fx:id="entrepriseCB" layoutX="29.0" layoutY="287.0" prefWidth="150.0" promptText="Entreprise" />
+        <Button layoutX="38.0" layoutY="336.0" mnemonicParsing="false" onAction="#ajouterOffreDemploi" prefHeight="43.0" prefWidth="131.0" style="-fx-background-color: #FF9800;" text="Ajouter" />
+        <Button layoutX="38.0" layoutY="389.0" mnemonicParsing="false" onAction="#modifierOffreDemploi" prefHeight="43.0" prefWidth="131.0" style="-fx-background-color: #FF9800;" text="Modifier" />
+        <Button layoutX="38.0" layoutY="444.0" mnemonicParsing="false" onAction="#supprimerOffreDemploi" prefHeight="43.0" prefWidth="131.0" style="-fx-background-color: #FF9800;" text="Supprimer" />
+        <TableView fx:id="tableView" layoutX="233.0" layoutY="97.0" onMouseClicked="#handleTableRowClicked" prefHeight="388.0" prefWidth="652.0">
+            <columns>
+                <TableColumn fx:id="titreCol" prefWidth="99.99993896484375" text="Titre" />
+                <TableColumn fx:id="descriptionCol" prefWidth="245.59994506835938" text="Description" />
+                <TableColumn fx:id="salaireCol" prefWidth="89.60003662109375" text="Salaire" />
+                <TableColumn fx:id="statusCol" prefWidth="103.2000732421875" text="Status" />
+                <TableColumn fx:id="entrepriseCol" prefWidth="143.9998779296875" text="Entreprise" />
+            </columns>
+        </TableView>
+        <TextField fx:id="titreTF" layoutX="29.0" layoutY="68.0" promptText="Titre" />
+        <TextField fx:id="descriptionTF" layoutX="29.0" layoutY="100.0" prefHeight="70.0" promptText="Description..." />
+        <TextField fx:id="salaireTF" layoutX="29.0" layoutY="183.0" promptText="Salaire" />
+        <Label layoutX="388.0" layoutY="5.0" text="Les Offres d'emploi" textFill="MIDNIGHTBLUE">
+            <font>
+                <Font name="System Bold" size="29.0" />
+            </font>
+        </Label>
+        <TextField fx:id="rechercherTF" layoutX="410.0" layoutY="61.0" prefHeight="26.0" prefWidth="192.0" promptText="Entrer Titre ..." />
+        <Button layoutX="29.0" layoutY="14.0" mnemonicParsing="false" onAction="#retourBT" style="-fx-background-color: #FF9800;" text="retour" />
+        <ImageView fitHeight="43.0" fitWidth="49.0" layoutX="233.0" layoutY="47.0" onMouseClicked="#exportExcelClicked" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../zaykaa/src/main/resources/img/icon_excel.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

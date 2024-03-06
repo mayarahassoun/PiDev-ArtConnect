@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreateReclamationControllers">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="257.0" style="-fx-background-color: #FFE0B2;">
+            <children>
+                <HBox prefHeight="70.0" prefWidth="218.0">
+                    <children>
+                        <ImageView fitHeight="70.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../../../../../../Downloads/429624197_373838825604079_5665639768613927721_n.png" />
+                            </image>
+                        </ImageView>
+                        <Label prefHeight="70.0" prefWidth="179.0" text="Art Connect" textFill="#002998">
+                            <font>
+                                <Font name="Freestyle Script" size="42.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <Pane prefHeight="65.0" prefWidth="225.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="5.0" prefHeight="56.0" prefWidth="163.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" text="Home" textAlignment="JUSTIFY">
+                            <font>
+                                <Font name="Yu Gothic UI Semibold" size="39.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Profile">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label prefHeight="17.0" prefWidth="11.0" />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text=" Evenements">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text=" Oeuvres D'art">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text=" Offres D'emploies">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Partenaire">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Label />
+                <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="263.0" style="-fx-background-color: #FFE0B2; -fx-background-radius: 16;" text="Reclaamations">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        <HBox layoutX="251.0" prefHeight="70.0" prefWidth="650.0" style="-fx-background-color: #FFE0B2;" />
+        <AnchorPane layoutX="258.0" layoutY="98.0" prefHeight="503.0" prefWidth="642.0">
+            <children>
+                <TextField fx:id="type" layoutX="164.0" layoutY="320.0" onKeyReleased="#onKeyReleasedHandler1" prefHeight="50.0" prefWidth="338.0">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="saveButton" layoutX="171.0" layoutY="408.0" mnemonicParsing="false" onAction="#onSave" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" text="envoyer" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" layoutX="396.0" layoutY="408.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" text="eliminer" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Button>
+                <TextArea fx:id="msg" layoutX="164.0" layoutY="99.0" onKeyReleased="#onKeyReleasedHandler2" prefHeight="200.0" prefWidth="338.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextArea>
+                <Label layoutX="78.0" layoutY="99.0" prefHeight="19.0" prefWidth="82.0" text="Cause:" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold Italic" size="23.0" />
+                    </font>
+                </Label>
+                <Label layoutX="78.0" layoutY="328.0" prefHeight="19.0" prefWidth="82.0" text="TYPE:" textFill="#1e1c1c">
+                    <font>
+                        <Font name="System Bold Italic" size="23.0" />
+                    </font>
+                </Label>
+                <Label layoutX="152.0" layoutY="-18.0" prefHeight="50.0" prefWidth="337.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" text="        Ajouter Une Reclamation" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <TextField fx:id="type1" layoutX="422.0" layoutY="418.0" onKeyReleased="#onKeyReleasedHandler1" prefHeight="50.0" prefWidth="338.0">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </TextField>
+        <Button fx:id="saveButton1" layoutX="429.0" layoutY="506.0" mnemonicParsing="false" onAction="#onSave" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" text="envoyer" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="cancelButton1" layoutX="654.0" layoutY="506.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #FF9800; -fx-background-radius: 15;" text="eliminer" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+        </Button>
+        <TextArea fx:id="msg1" layoutX="422.0" layoutY="197.0" onKeyReleased="#onKeyReleasedHandler2" prefHeight="200.0" prefWidth="338.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextArea>
+        <Label layoutX="336.0" layoutY="197.0" prefHeight="19.0" prefWidth="82.0" text="Cause:" textFill="#1b1a1a">
+            <font>
+                <Font name="System Bold Italic" size="23.0" />
+            </font>
+        </Label>
+        <Label layoutX="336.0" layoutY="426.0" prefHeight="19.0" prefWidth="82.0" text="TYPE:" textFill="#1e1c1c">
+            <font>
+                <Font name="System Bold Italic" size="23.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
